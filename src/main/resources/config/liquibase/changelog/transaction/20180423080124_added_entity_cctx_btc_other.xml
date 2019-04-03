@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity CryptoCurrencyTransaction.
+    -->
+    <changeSet id="20180423080124-1" author="jhipster">
+
+        <createTable tableName="cctx_btc_other">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="currency_name" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="create_date" type="timestamp">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="jhi_tx" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="message" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="jhi_value" type="numeric(100)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="user_info_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="external_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="order_pair_id" type="bigint">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="jhi_type" type="varchar(255)">
+                <constraints nullable="true"/>
+            </column>
+
+            <column name="status" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        <createIndex indexName="cctx_btc_other_ex_id"
+                     tableName="cctx_btc_other"
+                     unique="false">
+            <column name="external_id" type="bigint"/>
+        </createIndex>
+
+        <createIndex indexName="cctx_btc_other_ui_id"
+                     tableName="cctx_btc_other"
+                     unique="false">
+            <column name="user_info_id" type="bigint"/>
+        </createIndex>
+
+
+
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

@@ -1,0 +1,49 @@
+{
+    "name": "CryptoCurrencyTransaction",
+    "fields": [
+        {
+            "fieldName": "currencyName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "tx",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "message",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "value",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "userInfoId",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "externalId",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "type",
+            "fieldType": "CryptoCurrencyTransactionType",
+            "fieldValues": "ORDER,OR_FEE,OP_FEE"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20181226132210",
+    "entityTableName": "crypto_currency_transaction",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "tx",
+    "applications": "*",
+    "microserviceName": "tx"
+}

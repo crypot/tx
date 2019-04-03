@@ -1,10 +1,10 @@
 package com.exc.config;
 
-import com.exc.repository.UserRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import io.github.jhipster.config.JHipsterConstants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.CacheManager;
@@ -20,6 +20,7 @@ import com.google.code.ssm.spring.SSMCacheManager;
 
 import io.github.jhipster.config.JHipsterProperties;
 
+@Profile("!" + JHipsterConstants.SPRING_PROFILE_TEST)
 @Configuration
 @EnableCaching
 public class CacheConfiguration {
@@ -50,6 +51,7 @@ public class CacheConfiguration {
         return cacheManager;
     }
 
+/*
     @Bean
     public CacheFactory usersByLoginCache(JHipsterProperties jHipsterProperties) {
         return this.createCache(UserRepository.USERS_BY_LOGIN_CACHE, jHipsterProperties);
@@ -59,6 +61,7 @@ public class CacheConfiguration {
     public CacheFactory usersByEmailCache(JHipsterProperties jHipsterProperties) {
         return this.createCache(UserRepository.USERS_BY_EMAIL_CACHE, jHipsterProperties);
     }
+*/
 
     private CacheFactory createCache(String cacheName, JHipsterProperties jHipsterProperties) {
         if (!jHipsterProperties.getCache().getMemcached().isEnabled()) {
